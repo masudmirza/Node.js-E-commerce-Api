@@ -1,12 +1,12 @@
 const { Order, sequelize } = require('../models')
-const { Op } = require("sequelize");
+const { Op } = require("sequelize")
 
 // to get daily income according to the product id
 const getDailyIncome = async (req, res) => {
     const date = new Date()
     const year = req.query.year ? req.query.year : date.getFullYear()
     const month = req.query.month ? req.query.month : date.getMonth() + 1
-    const day = req.query.day ? req.query.day   : date.getDate()
+    const day = req.query.day ? req.query.day : date.getDate()
 
     try {
         const income  = await Order.findAll({
@@ -19,7 +19,6 @@ const getDailyIncome = async (req, res) => {
             raw: true,
             order: sequelize.literal('total DESC')
         })
-
         res.json(income)
     } catch (err) {
         console.log(err)
@@ -50,7 +49,6 @@ const getMonthlyIncome = async (req, res) => {
             raw: true,
             order: sequelize.literal('total DESC')
         })
-        
         res.json(income)
     } catch (err) {
         console.log(err)
@@ -80,14 +78,12 @@ const getAnnualIncome = async (req, res) => {
             raw: true,
             order: sequelize.literal('total DESC')
         })
-        
         res.json(income)
     } catch (err) {
         console.log(err)
         res.status(500).json({ error: 'Server error' })
     }
 }
-
 
 module.exports = {
     getDailyIncome,

@@ -10,7 +10,7 @@ const swaggerDoc = require('./swagger.json')
 const { sequelize } = require('./models')
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = 5000
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -44,7 +44,7 @@ app.use('/dashboard/income', require('./routes/dashboard'))
 // Page not founded
 app.use((req, res) => {
     res.status(404).json({
-        msg: 'Page not founded'
+        message: 'Page not founded'
     })
 })
 

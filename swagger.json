@@ -9,9 +9,6 @@
         {
         "url": "http://localhost:5000",
         "description": "Localhost server is for development purposes only"
-        },
-        {
-        "url": "mesud-ecommerce.herokuapp.com"
         }
     ],
     "consumes": [
