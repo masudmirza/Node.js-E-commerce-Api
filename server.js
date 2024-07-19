@@ -41,10 +41,10 @@ app.use('/order', require('./routes/order'))
 app.use('/dashboard/income', require('./routes/dashboard'))
 
 
-// Page not founded
+// Page not found
 app.use((req, res) => {
     res.status(404).json({
-        message: 'Page not founded'
+        message: 'Page not found'
     })
 })
 
